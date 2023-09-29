@@ -1,6 +1,10 @@
 # solidity-min-buildinfo
 Flatten contract, generating minimum build info json.
 
+# Prerequisites
+- [jq](https://jqlang.github.io/jq/)
+- [foundry](https://book.getfoundry.sh/getting-started/installation)
+
 # Usage
 ## flatten contract
 ```bash
