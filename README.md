@@ -1,66 +1,20 @@
-## Foundry
+# solidity-min-buildinfo
+Flatten contract, generating minimum build info json.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
-
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+# Usage
+## flatten contract
+```bash
+# usage: make flatten in=<input contract path> out=<output dir>"
+make flatten in=lib/openzeppelin-contracts/contracts/access/AccessControl.sol out=vendor"
+```
+## generate build info json
+before generate build info json, you need to flatten contract. and then, add out file names to the Makefile
+```Makefile
+ProxyAdmin.json: $@
+ProxyAdmin.min.json: ProxyAdmin.json
 ```
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+then run make command
+```bash
+make ProxyAdmin.min.json
 ```

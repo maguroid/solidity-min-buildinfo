@@ -31,7 +31,7 @@ TransparentUpgradeableProxy.min.json: TransparentUpgradeableProxy.json
 flatten:
 define usage
 	@echo "Description: Flatten solidity contracts to a single file"
-	@echo "Usage: make flatten in=<input contract path> out=<output dir>"
+	@echo "Usage: make flatten in=<input contract path> out=[output dir(default: vendor)]"
 	@echo "Example: make flatten in=lib/openzeppelin-contracts/contracts/access/AccessControl.sol out=vendor"
 endef
 
@@ -40,14 +40,7 @@ ifndef in
 	$(usage)
 	@exit 1
 endif
-
-ifndef out
-	@echo error: outdir is undefined
-	$(usage)
-	@exit 1
-endif
-
-	$(usage)
+	$(eval out := vendor)
 	@echo "Flattening $(in) to $(out)"
 	mkdir -p $(out)
 	forge flatten $(in) > $(out)/$(notdir $(in))
