@@ -31,7 +31,7 @@ TransparentUpgradeableProxy.min.json: TransparentUpgradeableProxy.json
 flatten:
 define usage
 	@echo "Description: Flatten solidity contracts to a single file"
-	@echo "Usage: make flatten in=<input contract path> out=[output dir(default: vendor)]"
+	@echo "Usage: make flatten in=<input contract path> out=[output_dir(default: vendor)]"
 	@echo "Example: make flatten in=lib/openzeppelin-contracts/contracts/access/AccessControl.sol out=vendor"
 endef
 

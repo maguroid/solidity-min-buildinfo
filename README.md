@@ -4,7 +4,7 @@ Flatten contract, generating minimum build info json.
 # Usage
 ## flatten contract
 ```bash
-# usage: make flatten in=<input contract path> out=<output dir>"
+# usage: make flatten in=<input contract path> out=[output_dir(default: vendor)]"
 make flatten in=lib/openzeppelin-contracts/contracts/access/AccessControl.sol out=vendor"
 ```
 ## generate build info json
